@@ -1,41 +1,37 @@
 /* eslint-disable react/prop-types */
 import  { useState } from 'react';
+import { MdClose } from 'react-icons/md';
 
 const EventForm = ({ selectedDate, onSubmit, closeModal }) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [category,setCategory] = useState('Work')
+    
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newEvent = { title, description, date: selectedDate };
+        const newEvent = { title, description,category, date: selectedDate };
         onSubmit(newEvent);
+
         setTitle('');
         setDescription('');
+        setCategory('')
         closeModal();
     };
 
+    
+    const handle = () => {
+      closeModal()
+    }
+
     return (
-        // <form onSubmit={handleSubmit} className='flex justify-center m-auto flex-col'>
-        //     <h2>Add Event</h2>
-        //     <input
-        //         type="text"
-        //         placeholder="Event Title"
-        //         value={title}
-        //         onChange={(e) => setTitle(e.target.value)}
-        //         required
-        //     />
-        //     <textarea
-        //         placeholder="Event Description"
-        //         value={description}
-        //         onChange={(e) => setDescription(e.target.value)}
-        //         required
-        //     />
-        //     <button type="submit">Save Event</button>
-        // </form>
+      
 
-<>
+<div className='relative'>
 
-<h2 className='text-center mb-6'>Add Events</h2>
+<h1 className='text-center mb-6 text-2xl font-bold'>Add Events</h1>
+<button className='absolute right-[3%] top-[5%]' onClick={handle}><MdClose size={35}/></button>
+
 <form className="flex justify-center" onSubmit={handleSubmit}>
    
 <div className="mr-10">
@@ -56,6 +52,13 @@ const EventForm = ({ selectedDate, onSubmit, closeModal }) => {
 
 </div>
 
+<div className="mr-5">
+<select value={category} onChange={(e) => setCategory(e.target.value)}>
+                <option value="Work">Work</option>
+                <option value="Personal">Personal</option>
+            </select>
+</div>
+
 <div>
 <button
   type="submit"
@@ -68,7 +71,7 @@ const EventForm = ({ selectedDate, onSubmit, closeModal }) => {
 
 </form>
 
-</>
+</div>
 
 
 
