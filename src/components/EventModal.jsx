@@ -110,10 +110,10 @@ const EventModal = ({
 
                 <div>
                   <button onClick={() => deleteEvent(index)} className="ml-4">
-                    <MdClose />
+                    <MdClose size={25} />
                   </button>
                   <button className="ml-4" onClick={() => handle(index)}>
-                    <FaEdit />
+                    <FaEdit size={25} />
                   </button>
                 </div>
               </li>
