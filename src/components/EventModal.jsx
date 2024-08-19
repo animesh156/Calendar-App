@@ -74,7 +74,7 @@ const EventModal = ({
             required
           />
 
-          <textarea  value={updateDescription}  onChange={(e) => setUpdateDis(e.target.value)}  rows="4" cols="30" className="block px-4 py-1.5 mt-6 mb-6  text-sm text-gray-900 bg-cyan-100 rounded-lg border border-slate-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-auto" placeholder="Event Details..."></textarea>
+          <textarea  value={updateDescription}  onChange={(e) => setUpdateDis(e.target.value)}  rows="4" cols="16" className="block px-4 py-1.5 mt-6 mb-6  text-sm text-gray-900 bg-cyan-100 rounded-lg border border-slate-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-auto" placeholder="Event Details..."></textarea>
 
           <button  className="text-white bg-blue-700 hover:bg-blue-800  font-medium rounded-lg text-sm px-5 py-2.5 mt-5   text-center dark:bg-blue-600 dark:hover:bg-blue-700 ">Update</button>
         </form>
