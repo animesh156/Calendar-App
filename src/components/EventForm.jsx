@@ -48,7 +48,7 @@ const EventForm = ({ selectedDate, onSubmit, closeModal }) => {
 
 <div className="mb-5">
 
-<textarea id="description" value={description}  onChange={(e) => setDescription(e.target.value)}  rows="4" cols="50" className="block px-4 py-1.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Event Details..."></textarea>
+<textarea id="description" value={description}  onChange={(e) => setDescription(e.target.value)}  rows="4" cols="30" className="block px-4 py-1.5 w-auto text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Event Details..."></textarea>
 
 </div>
 
