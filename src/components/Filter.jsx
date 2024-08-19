@@ -10,7 +10,7 @@ const Filter = ({ categories, selectedCategory, onCategoryChange }) => {
 
     return (
         <div>
-            <select value={selectedCategory} onChange={handle}>
+            <select value={selectedCategory} onChange={handle} className="bg-cyan-100">
                 <option value="All">All</option>
                 {categories.map((category, index) => (
                     <option key={index} value={category}>

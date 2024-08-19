@@ -44,7 +44,7 @@ const CalendarComponent = () => {
 
   const handleClose = () => {
     setOpen(false);
-    setSelectedCategory('All')
+    setSelectedCategory("All");
   };
 
   const handleEventDetails = (e) => {
@@ -73,7 +73,7 @@ const CalendarComponent = () => {
                     onClick={handleEventDetails}
                     key={index}
                     value={index}
-                    className="bg-red-300 mb-1 w-auto overflow-hidden border-green-700"
+                    className="bg-red-200 mb-1 w-auto overflow-hidden text-stone-950 font-semibold font-sans uppercase"
                   >
                     {event.title}
                   </li>
@@ -99,7 +99,7 @@ const CalendarComponent = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} className="relative w-auto h-auto">
+        <Box sx={style} className="relative w-auto h-96 overflow-y-scroll">
           {/* <h4 className="text-2xl absolute top-[5%] left-[30%] mb-5">Event Details</h4> */}
           <button
             onClick={handleClose}
@@ -115,86 +115,98 @@ const CalendarComponent = () => {
             setSelectedCategory={setSelectedCategory}
           />
 
-
-          {selectedCategory !=='All'    ?   (events.filter(
-              (event) =>
-                new Date(event.date).toDateString() ===
-                selectedDate.toDateString()
-            )
-            .filter((event) => event.category === selectedCategory)
-            .map((event) => (
-              <>
-                <div className="text-center flex flex-col items-center mt-7 w-60 lg:w-[420px]">
-                  <h1
-                    id="modal-modal-title"
-                    className="text-3xl mb-5 uppercase"
-                  >
-                    {event.title}
-                  </h1>
-                  <h1
-                    id="modal-modal-description"
-                    rows="3"
-                    cols="30"
-                    className="border-red-300 border-2  text-2xl  w-60 lg:w-[400px] h-auto   break-words"
-                  >
-                    {event.description}
-                  </h1>
-
-                  <h1
-                    id="modal-modal-description"
-                    rows="3"
-                    cols="30"
-                    className="border-red-300 border-2  text-2xl  w-60 lg:w-[400px] h-auto   break-words"
-                  >
-                    {event.category}
-                  </h1>
-                </div>
-              </>
-            )))  :
-
-            (
-              events
+          {selectedCategory !== "All"
+            ? events
                 .filter(
                   (event) =>
                     new Date(event.date).toDateString() ===
                     selectedDate.toDateString()
                 )
-               
+                .filter((event) => event.category === selectedCategory)
                 .map((event) => (
                   <>
-                    <div className="text-center flex flex-col items-center mt-7 w-60 lg:w-[420px]">
-                      <h1
-                        id="modal-modal-title"
-                        className="text-3xl mb-5 uppercase"
-                      >
-                        {event.title}
-                      </h1>
-                      <h1
-                        id="modal-modal-description"
-                        rows="3"
-                        cols="30"
-                        className="border-red-300 border-2  text-2xl  w-60 lg:w-[400px] h-auto   break-words"
-                      >
-                        {event.description}
-                      </h1>
-    
-                      <h1
-                        id="modal-modal-description"
-                        rows="3"
-                        cols="30"
-                        className="border-red-300 border-2  text-2xl  w-60 lg:w-[400px] h-auto   break-words"
-                      >
-                        {event.category}
-                      </h1>
+                    <div className="max-w-sm mt-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                      <a href="#">
+                        <img
+                          className="rounded-t-lg w-full h-36"
+                          src="https://plus.unsplash.com/premium_photo-1673306778968-5aab577a7365?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          alt=""
+                        />
+                      </a>
+                      <div className="p-5">
+                        <h1
+                          id="modal-modal-title"
+                          className="text-3xl font-bold text-red-500 mb-5 text-center uppercase "
+                        >
+                          {event.title}
+                        </h1>
+
+                        <h3
+                          id="modal-modal-description"
+                          rows="3"
+                          cols="30"
+                          className="text-center text-orange-400 font-semibold  text-2xl  h-auto   break-words mb-5"
+                        >
+                          {event.category}
+                        </h3>
+                        <textarea
+                          id="modal-modal-description"
+                          rows="3"
+                          cols="25"
+                          className="border-red-300 text-center border-2 text-violet-600  text-md font-semibold  w-auto  h-auto   break-words"
+                        >
+                          {event.description}
+                        </textarea>
+                      </div>
                     </div>
+                   
                   </>
                 ))
-            )
-          
-          
-          }
+            : events
+                .filter(
+                  (event) =>
+                    new Date(event.date).toDateString() ===
+                    selectedDate.toDateString()
+                )
 
-         
+                .map((event) => (
+                  <>
+                    <div className="max-w-sm mt-4 mb-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                      <a href="#">
+                        <img
+                          className="rounded-t-lg h-36 w-full"
+                          src="https://plus.unsplash.com/premium_photo-1673306778968-5aab577a7365?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                          alt=""
+                        />
+                      </a>
+                      <div className="p-5">
+                        <h1
+                          id="modal-modal-title"
+                          className="text-3xl font-bold text-red-600 mb-5 text-center uppercase "
+                        >
+                          {event.title}
+                        </h1>
+
+                        <h3
+                          id="modal-modal-description"
+                          rows="3"
+                          cols="25"
+                          className="text-center  text-2xl text-yellow-400 font-semibold  h-auto   break-words mb-5"
+                        >
+                          {event.category}
+                        </h3>
+                        <textarea
+                          id="modal-modal-description"
+                          rows="3"
+                          cols="25"
+                          className="border-red-300 text-center border-2 text-violet-600  text-md font-semibold  w-auto  h-auto   break-words"
+                        >
+                          {event.description}
+                        </textarea>
+                      </div>
+                    </div>
+                  </>
+                ))}
         </Box>
       </Modal>
     </div>

@@ -16,14 +16,14 @@ const EventModal = ({
   selectedDate,
   deleteEvent,
 }) => {
-  const [test, setTest] = useState(false);
+  const [openForm, setOpenForm] = useState(false);
   const [updateTitle, setUpdateTitle] = useState("");
   const [EventIndex, setEventIndex] = useState(0);
   const [updateDescription,setUpdateDis] = useState("")
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    setTest(false);
+    setOpenForm(false);
   
 
     {
@@ -38,8 +38,10 @@ const EventModal = ({
     }
   };
 
+
+
   const handle = (indexId) => {
-    setTest(true);
+    setOpenForm(true);
     setEventIndex(indexId);
     console.log(updateDescription)
     setUpdateTitle('')
@@ -53,14 +55,16 @@ const EventModal = ({
     isOpen={isOpen}
     onRequestClose={closeModal}
     contentLabel="Event Modal"
+    
   >
    
   
-      <h3 className="text-center">Events on {selectedDate.toDateString()}</h3>
+    
 
-     {test ? (
+     {openForm ? (
       
-        <form className="flex items-center rounded-2xl flex-col border-2 border-red-400 w-[500px] h-80 m-auto  " onSubmit={handleUpdate}>
+        <form className="flex relative items-center rounded-2xl flex-col border-2 border-red-400 w-[500px] h-80 m-auto  " onSubmit={handleUpdate}>
+          <button onClick={() => setOpenForm(false)} className="absolute right-[5%] top-[5%]"><MdClose size={30}/></button>
           <input
             type="text"
             value={updateTitle}
@@ -83,6 +87,7 @@ const EventModal = ({
       closeModal={closeModal}
     />
 
+<h3 className="text-center font-sans font-semibold text-pink-600 text-2xl mt-6">Events on {selectedDate.toDateString()}</h3>
       
         <ul>
 
@@ -95,10 +100,14 @@ const EventModal = ({
             )
             .map((event, index) => (
               <li
-                className="text-center mt-3 bg-slate-200 w-auto px-2 py-2 flex justify-evenly"
+                className="text-center mt-3 bg-slate-50 w-auto px-2 py-2 flex justify-evenly"
                 key={index}
               >
-                {event.title} - {event.description} -{event.category}
+               
+                <h1 className="uppercase text-red-500 font-bold">{event.title}</h1>
+                <h4 className="text-green-500 font-serif font-bold">{event.category}</h4>
+                <textarea className="text-orange-400 font-semibold">{event.description}</textarea>
+
                 <div>
                   <button onClick={() => deleteEvent(index)} className="ml-4">
                     <MdClose />

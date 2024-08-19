@@ -53,7 +53,7 @@ const EventForm = ({ selectedDate, onSubmit, closeModal }) => {
 </div>
 
 <div className="mr-5">
-<select value={category} onChange={(e) => setCategory(e.target.value)}>
+<select value={category} className='bg-slate-300' onChange={(e) => setCategory(e.target.value)}>
                 <option value="Work">Work</option>
                 <option value="Personal">Personal</option>
             </select>
