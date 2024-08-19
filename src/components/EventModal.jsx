@@ -63,18 +63,18 @@ const EventModal = ({
 
      {openForm ? (
       
-        <form className="flex relative items-center rounded-2xl flex-col border-2 border-red-400 w-[500px] h-80 m-auto  " onSubmit={handleUpdate}>
-          <button onClick={() => setOpenForm(false)} className="absolute right-[5%] top-[5%]"><MdClose size={30}/></button>
+        <form className="flex relative items-center rounded-2xl flex-col border-2 border-red-400 lg:w-[500px] sm:w-96 h-80 m-auto  " onSubmit={handleUpdate}>
+          <button onClick={() => setOpenForm(false)} className=" absolute right-[0.5%] top-[5%]"><MdClose size={30}/></button>
           <input
             type="text"
             value={updateTitle}
             onChange={(e) => setUpdateTitle(e.target.value)}
-            className="bg-cyan-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-56 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-8"
+            className="bg-cyan-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-auto p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-8"
             placeholder="enter updated title"
             required
           />
 
-          <textarea  value={updateDescription}  onChange={(e) => setUpdateDis(e.target.value)}  rows="4" cols="50" className="block px-4 py-1.5 mt-6 mb-6  text-sm text-gray-900 bg-cyan-100 rounded-lg border border-slate-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Event Details..."></textarea>
+          <textarea  value={updateDescription}  onChange={(e) => setUpdateDis(e.target.value)}  rows="4" cols="30" className="block px-4 py-1.5 mt-6 mb-6  text-sm text-gray-900 bg-cyan-100 rounded-lg border border-slate-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 w-auto" placeholder="Event Details..."></textarea>
 
           <button  className="text-white bg-blue-700 hover:bg-blue-800  font-medium rounded-lg text-sm px-5 py-2.5 mt-5   text-center dark:bg-blue-600 dark:hover:bg-blue-700 ">Update</button>
         </form>
@@ -100,13 +100,26 @@ const EventModal = ({
             )
             .map((event, index) => (
               <li
-                className="text-center mt-3 bg-slate-50 w-auto px-2 py-2 flex justify-evenly"
+                className="text-center  mt-3 bg-slate-100 w-auto px-2 py-2 flex justify-evenly  "
                 key={index}
               >
-               
+               <div className="flex flex-col justify-evenly md:flex-row">
+                <div className="mr-4">
                 <h1 className="uppercase text-red-500 font-bold">{event.title}</h1>
-                <h4 className="text-green-500 font-serif font-bold">{event.category}</h4>
-                <textarea className="text-orange-400 font-semibold">{event.description}</textarea>
+                </div>
+
+                <div className="mr-4">
+                <h4 className="text-green-500 font-serif font-bold ">{event.category}</h4>
+                </div>
+
+                <div>
+                <textarea size="20" className="text-orange-400 w-auto  bg-cyan-100 text-center font-semibold">{event.description}</textarea>
+                </div>
+              
+                
+                
+               </div>
+              
 
                 <div>
                   <button onClick={() => deleteEvent(index)} className="ml-4">
