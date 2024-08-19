@@ -40,7 +40,7 @@ const EventForm = ({ selectedDate, onSubmit, closeModal }) => {
     type="text"
    value={title}
    onChange={(e) => setTitle(e.target.value)}
-    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-60 sm:w-auto p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
     placeholder="Event Title..."
     required=""
   />
@@ -48,7 +48,7 @@ const EventForm = ({ selectedDate, onSubmit, closeModal }) => {
 
 <div className="mb-5">
 
-<textarea id="description" value={description}  onChange={(e) => setDescription(e.target.value)}  rows="4" cols="30" className="block px-4 py-1.5 w-auto text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Event Details..."></textarea>
+<textarea id="description" value={description}  onChange={(e) => setDescription(e.target.value)}  rows="4" cols="40" className="block px-4 py-1.5 w-auto text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Event Details..."></textarea>
 
 </div>
 
